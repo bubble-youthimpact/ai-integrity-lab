@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Authentic Intelligence</title>
+<meta name="robots" content="noindex">
+<style>
+  body{margin:0;min-height:100vh;display:grid;place-items:center;background:#faf8f3;color:#1f3270;font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+  p{font-size:15px;opacity:.7}
+</style>
+<script>
+/* GitHub Pages shows this file for any address it doesn't have a file for, such as /courses.
+   It sends the visitor to the site's main page with the address attached, and the site opens that page.
+   It works whether the site is at yourname.github.io/repo/ or on its own domain. */
+(function(){
+  var l=window.location, segs=l.pathname.split("/").filter(Boolean);
+  function send(base){
+    var rest=l.pathname.slice(base.length).replace(/^\/+/,"");
+    l.replace(base+"?p="+encodeURIComponent(rest)+(l.search?"&"+l.search.slice(1):"")+l.hash);
+  }
+  if(/\.github\.io$/.test(l.hostname) && segs.length){
+    var guess="/"+segs[0]+"/";
+    fetch(guess+"index.html",{method:"HEAD"}).then(function(r){ send(r.ok?guess:"/"); }).catch(function(){ send("/"); });
+  } else send("/");
+})();
+</script>
+</head>
+<body><p>Loading…</p></body>
+</html>
